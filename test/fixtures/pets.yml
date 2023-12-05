@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pet_name: MyString
+  pet_birthdate: 2023-12-03
+  animal_species: MyString
+  pet_kind: MyString
+  user: one
+
+two:
+  pet_name: MyString
+  pet_birthdate: 2023-12-03
+  animal_species: MyString
+  pet_kind: MyString
+  user: two
