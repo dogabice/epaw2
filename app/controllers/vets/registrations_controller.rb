@@ -9,7 +9,7 @@ class Vets::RegistrationsController < Devise::RegistrationsController
     end
 
     def update
-        if current_user.update(user_params)
+        if current_vet.update(user_params)
             flash[:notice] = "Profil başarıyla güncellendi."
             redirect_to root_path
           else

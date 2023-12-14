@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :donations
   devise_for :vets, path: 'vets', controllers: { registrations: 'vets/registrations',
                                                 sessions: 'vets/sessions',
                                                 confirmations: 'vets/confirmations',
@@ -23,7 +24,7 @@ Rails.application.routes.draw do
     root 'home#index', as: :authenticated_user_root
   end
   authenticated :vet do
-    root 'home#index_vet', as: :authenticated_vet_root
+    root 'home#index', as: :authenticated_vet_root
   end
 
   get 'home/account_type_login'

@@ -1,0 +1,28 @@
+<div id="dom_id">
+ 
+
+  <p>
+    <strong>Donation amount:</strong>
+    <%= donation.donation_amount %>
+  </p>
+
+  <p>
+    <strong>Donation date:</strong>
+    <%= donation.created_at %>
+  </p>
+
+  <p>
+
+  <strong>Donation made by:</strong>
+  <% @userid = donation.user_id %>
+  <% if (@userid!= nil) %>
+  <%= User.find(@userid).first_name %>
+  <% else %>
+  <% @vetid = donation.vet_id %>
+  <%= Vet.find(@vetid).first_name %>
+  <% end %>
+
+    <%= donation.vet_id %>
+  </p>
+
+</div>
