@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_13_193225) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_14_144349) do
+  create_table "appointments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "pet_id", null: false
+    t.integer "vet_id", null: false
+    t.datetime "date"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_appointments_on_pet_id"
+    t.index ["user_id"], name: "index_appointments_on_user_id"
+    t.index ["vet_id"], name: "index_appointments_on_vet_id"
+  end
+
   create_table "donations", force: :cascade do |t|
     t.datetime "donation_date"
     t.integer "donation_amount"
@@ -18,6 +31,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_13_193225) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "vet_id"
+  end
+
+  create_table "health_records", force: :cascade do |t|
+    t.integer "pet_id", null: false
+    t.integer "vet_id", null: false
+    t.text "health_treatments"
+    t.text "health_notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_id"], name: "index_health_records_on_pet_id"
+    t.index ["vet_id"], name: "index_health_records_on_vet_id"
   end
 
   create_table "pets", force: :cascade do |t|
@@ -66,5 +90,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_13_193225) do
     t.index ["reset_password_token"], name: "index_vets_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "appointments", "pets"
+  add_foreign_key "appointments", "users"
+  add_foreign_key "appointments", "vets"
+  add_foreign_key "health_records", "pets"
+  add_foreign_key "health_records", "vets"
   add_foreign_key "pets", "users"
 end

@@ -5,4 +5,6 @@ class Vet < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :donations
+  has_many :appointments, :dependent => :destroy
+  has_many :health_records, :dependent => :destroy
 end

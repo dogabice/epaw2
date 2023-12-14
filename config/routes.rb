@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :appointments
   resources :donations
   devise_for :vets, path: 'vets', controllers: { registrations: 'vets/registrations',
                                                 sessions: 'vets/sessions',
@@ -10,7 +11,9 @@ Rails.application.routes.draw do
                                                 shared: 'vets/shared',
                                                 unlocks: 'vets/unlocks' }
 
-  resources :pets
+  resources :pets do
+  resources :health_records
+end
 
   devise_for :users, path: 'users', controllers: { registrations: 'users/registrations',
                                                   sessions: 'users/sessions',

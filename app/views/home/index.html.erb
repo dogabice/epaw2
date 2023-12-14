@@ -7,6 +7,7 @@
     <%= link_to 'Pets', pets_path%>
     <%= link_to 'Donations', donations_path%>
     <%= button_to 'Sign Out', destroy_user_session_path, method: :delete%>
+    <%= link_to 'Appointment', appointments_path%>
 
 <% elsif vet_signed_in? %>
 

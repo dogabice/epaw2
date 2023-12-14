@@ -1,0 +1,27 @@
+<div id="<%= dom_id appointment %>">
+  <p>
+    <strong>User:</strong>
+    <%= User.find(appointment.user_id).first_name %>
+  </p>
+
+  <p>
+    <strong>Pet:</strong>
+    <%= Pet.find(appointment.pet_id).pet_name %>
+  </p>
+
+  <p>
+    <strong>Vet:</strong>
+    <%= Vet.find(appointment.vet_id).first_name %>
+  </p>
+
+  <p>
+    <strong>Date:</strong>
+    <%= appointment.date %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= appointment.description %>
+  </p>
+
+</div>
