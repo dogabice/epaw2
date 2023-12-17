@@ -1,9 +1,17 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[ show edit update destroy ]
 
+
   # GET /pets or /pets.json
   def index
-    @pets = current_user.pets
+    if user_signed_in?
+      @pets = current_user.pets
+    elsif vet_signed_in?
+      @pets=[]
+      current_vet.appointments.each do |ap|
+      @pets << Pet.find(ap.pet_id)
+      end
+    end
   end
 
   # GET /pets/1 or /pets/1.json

@@ -1,0 +1,62 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Donations</h1>
+
+<% @totalAmount= 0 %>
+
+
+
+<div id="donations">
+  <% @donations.each do |donation| %>
+
+    <% @totalAmount += donation.donation_amount %>
+
+    <% render donation %>
+    
+  <% end %>
+
+  <div id="friends" class="card" style="width: 18rem;">
+    <div class="card-body">
+
+      <h2 class="card-title"> Total donations:</h5>
+
+      <h2 class="card-title"> <%= @totalAmount %></h5>
+
+    </div>  
+  </div>
+
+  <br/>
+  <p> Recent donations: </p>
+  
+  <% @donations.each do |donation| %>
+
+    <p>
+    <strong>Donation amount:</strong>
+    <%= donation.donation_amount %>
+  </p>
+  <p>
+
+  <strong>Donation made by:</strong>
+  <% @userid = donation.user_id %>
+  <% if (@userid!= nil) %>
+  <%= User.find(@userid).first_name %>
+  
+  <% else %>
+  <% @vetid = donation.vet_id %>
+  <%= Vet.find(@vetid).first_name %>
+  
+  <% end %>
+  <br/>
+  <%= link_to "Show this donation", donation %>
+    <%= donation.vet_id %>
+  </p>
+    <p>
+      <% link_to "Show this donation", donation %>
+    </p>
+  <% end %>
+
+
+</div>
+
+<%= link_to "New donation", new_donation_path %>
+<%= link_to "Back", root_path%>

@@ -1,0 +1,35 @@
+<%= form_with(model: health_record, url: pet_health_records_path) do |form| %>
+  <% if health_record.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(health_record.errors.count, "error") %> prohibited this health_record from being saved:</h2>
+
+      <ul>
+        <% health_record.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.hidden_field :pet_id, value: @pet.id %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :vet_id, value: current_vet.id %>
+  </div>
+
+  <div>
+    <%= form.label :health_treatments, style: "display: block" %>
+    <%= form.text_area :health_treatments %>
+  </div>
+
+  <div>
+    <%= form.label :health_notes, style: "display: block" %>
+    <%= form.text_area :health_notes %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

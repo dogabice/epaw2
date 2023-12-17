@@ -1,0 +1,15 @@
+<h1>Home index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<% if vet_signed_in? %>
+    
+    <%= link_to 'Edit Profile', edit_vet_registration_path%><br/>
+    <%= link_to 'Pets', pets_path%>
+    <%= button_to 'Sign Out', destroy_vet_session_path, method: :delete%>
+
+<% else%>
+
+    <%= link_to 'Sign In', home_account_type_login_path%>
+    <%= link_to 'Sign Up', home_account_type_register_path%>
+
+<% end %>

@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :pets, :dependent => :destroy
+  has_many :donations
+  has_many :appointments
+  
 end
