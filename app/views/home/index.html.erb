@@ -12,7 +12,7 @@
 <% elsif vet_signed_in? %>
 
     <%= link_to 'Edit Profile', edit_vet_registration_path%><br/>
-    <% link_to 'Pets', pets_path%>
+    <%= link_to 'Pets', pets_path%>
     <%= link_to 'Donations', donations_path%>
     <%= button_to 'Sign Out', destroy_vet_session_path, method: :delete%>
 

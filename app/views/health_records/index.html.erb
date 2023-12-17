@@ -4,7 +4,11 @@
 
 <div id="health_records">
   <% @health_records.each do |health_record| %>
-    <%= render health_record %>
+    <p>
+    <strong>Health Treatment:</strong>
+    <%= health_record.health_treatments %>
+  </p>
+
     <p>
       <%= link_to "Show this health record", pet_health_record_path(@pet, health_record) %>
     </p>

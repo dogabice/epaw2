@@ -4,7 +4,11 @@
 
 <div id="pets">
   <% @pets.each do |pet| %>
-    <%= render pet %>
+
+    <p>
+    <strong>Pet Name:</strong>
+    <%= pet.pet_name %>
+  </p>
     <p>
       <%= link_to "Show this pet", pet %>
     </p>

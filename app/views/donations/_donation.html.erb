@@ -1,17 +1,6 @@
 <div id="dom_id">
  
-
-  <p>
-    <strong>Donation amount:</strong>
-    <%= donation.donation_amount %>
-  </p>
-
-  <p>
-    <strong>Donation date:</strong>
-    <%= donation.created_at %>
-  </p>
-
-  <p>
+<p>
 
   <strong>Donation made by:</strong>
   <% @userid = donation.user_id %>
@@ -24,5 +13,16 @@
 
     <%= donation.vet_id %>
   </p>
+  <p>
+    <strong>Donation amount:</strong>
+    <%= donation.donation_amount %>
+  </p>
+
+  <p>
+    <strong>Donation date:</strong>
+    <%= donation.created_at %>
+  </p>
+
+  
 
 </div>

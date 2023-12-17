@@ -12,9 +12,7 @@
     <% @totalAmount += donation.donation_amount %>
 
     <% render donation %>
-    <p>
-      <%= link_to "Show this donation", donation %>
-    </p>
+    
   <% end %>
 
   <div id="friends" class="card" style="width: 18rem;">
@@ -32,7 +30,26 @@
   
   <% @donations.each do |donation| %>
 
-    <%= render donation %>
+    <p>
+    <strong>Donation amount:</strong>
+    <%= donation.donation_amount %>
+  </p>
+  <p>
+
+  <strong>Donation made by:</strong>
+  <% @userid = donation.user_id %>
+  <% if (@userid!= nil) %>
+  <%= User.find(@userid).first_name %>
+  
+  <% else %>
+  <% @vetid = donation.vet_id %>
+  <%= Vet.find(@vetid).first_name %>
+  
+  <% end %>
+  <br/>
+  <%= link_to "Show this donation", donation %>
+    <%= donation.vet_id %>
+  </p>
     <p>
       <% link_to "Show this donation", donation %>
     </p>

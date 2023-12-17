@@ -4,7 +4,14 @@
 
 <div id="appointments">
   <% @appointments.each do |appointment| %>
-    <%= render appointment %>
+    <p>
+    <strong>Pet Name:</strong>
+    <%= Pet.find(appointment.pet_id).pet_name %>
+  </p>
+  <p>
+  <strong>Description:</strong>
+  <%= appointment.description %>
+</p>
     <p>
       <%= link_to "Show this appointment", appointment %>
     </p>
@@ -14,3 +21,4 @@
 <%if user_signed_in?%>
 <%= link_to "New appointment", new_appointment_path %>
 <% end %>
+<%= link_to "Back", root_path%>

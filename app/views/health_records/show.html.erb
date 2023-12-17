@@ -6,5 +6,5 @@
   <%= link_to "Edit this health record", edit_pet_health_record_path(@health_record) %> |
   <%= link_to "Back to health records", pet_health_records_path %>
 
-  <%= button_to "Destroy this health record", @health_record, method: :delete %>
+  <%= button_to "Destroy this health record",pet_health_record_path(@pet, @health_record), method: :delete %>
 </div>

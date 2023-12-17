@@ -35,6 +35,7 @@ end
   root 'home#index'
 
 
+
   #devise_scope :user do  (??)
 
 end
