@@ -7,5 +7,8 @@ class HomeController < ApplicationController
 
   def account_type_register
   end
+
+  def template
+  end
   
 end

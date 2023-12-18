@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>E-PAW TEMPLATE</title>
+    <link rel="stylesheet" href="template.css">
+</head>
+<body>
+<nav>
+<div class="container clearfix">
+    <div id="logo-box">
+        <a href="/" class="logo">
+            E-Paw
+        </a>
+    </div>
+    <div id="nav-links">
+        <ul>
+        <li class="nav-item text-uppercase">
+            <%= link_to 'MAIN PAGE' , root_path, class:"nav-link"%>
+            </li>
+
+            <% if user_signed_in? %>
+
+            <li class="nav-item text-uppercase">
+                <%= link_to 'PET PROFILE' , pets_path, class:"nav-link"%>
+            </li>
+
+            <li class="nav-item text-uppercase">
+                <%= link_to 'DONATE' , donations_path, class:"nav-link"%>
+            </li>
+
+            <li class="nav-item text-uppercase">
+            <a class="nav-link" href="#" role= "button" data-bs-toggle="dropdown" aria-expanded="false">PROFILE</a>
+
+              <ul class="dropdown"> 
+                <li> <a class="sign_up_dropdown" href="#">
+                 <%= link_to 'EDIT PROFILE' , edit_user_registration_path, class:"nav-link"%>
+                 </a>
+                </li>
+                
+                <li> 
+                <%= button_to 'SIGN OUT', destroy_user_session_path, method: :delete, class:"nav-link"%>
+                </a>
+                </li>
+              </ul>
+            </li>
+
+            
+
+            <% elsif vet_signed_in? %>
+
+            <li class="nav-item text-uppercase">
+                <%= link_to 'PETS' , pets_path, class:"nav-link"%>
+            </li>
+
+
+            <li class="nav-item text-uppercase">
+                <%= link_to 'DONATE' , donations_path, class:"nav-link"%>
+            </li>
+
+            <li class="nav-item text-uppercase">
+            <a class="nav-link" href="#" role= "button" data-bs-toggle="dropdown" aria-expanded="false">PROFILE</a>
+
+              <ul class="dropdown"> 
+                <li> <a class="sign_up_dropdown" href="#">
+                 <%= link_to 'EDIT PROFILE' , edit_vet_registration_path, class:"nav-link"%>
+                 </a>
+                </li>
+                
+                <li> 
+                <%= button_to 'SIGN OUT' , destroy_vet_session_path ,method: :delete, class:"nav-link"%>
+                </a>
+                </li>
+              </ul>
+            </li>
+
+
+            <% else %>
+            <li class="nav-item text-uppercase">
+            <a class="nav-link" href="#" role= "button" data-bs-toggle="dropdown" aria-expanded="false">LOG IN</a>
+
+                <ul class="dropdown"> 
+                <li> <a class="sign_up_dropdown" href="#">
+                 <%= link_to 'USER' , new_user_session_path, class:"nav-link"%>
+                 </a>
+                </li>
+                
+                <li> <a class="sign_up_dropdown" href="#">
+                <%= link_to 'VET' , new_vet_session_path, class:"nav-link"%>
+                </a>
+                </li>
+                </ul>
+            </li>
+
+            <li class="nav-item text-uppercase">
+            <a class="nav-link" href="#" role= "button" data-bs-toggle="dropdown" aria-expanded="false">SIGN UP</a>
+
+                <ul class="dropdown"> 
+                <li> <a class="sign_up_dropdown" href="#">
+                <%= link_to 'USER' , new_user_registration_path, class:"nav-link"%>
+                </a>
+                </li>
+                
+                <li> <a class="sign_up_dropdown" href="#">
+                <%= link_to 'VET' , new_vet_registration_path, class:"nav-link"%>
+                </a>
+                </li>
+                </ul>
+            </li>
+            <% end %>
+
+        </ul>
+    </div>
+    <div class="container">
+            <%= image_tag("epaw-logo.png",
+            style:" max-width: 179px;
+            max-height: 141px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 2;") %>
+
+            <h4 class="slogan">Hands for Paws</h4>
+        </div>
+        <div class="circle-s"></div>
+        <div class="circle-m"></div>
+    
+</div>
+</nav>
+</body>
+
+</html>

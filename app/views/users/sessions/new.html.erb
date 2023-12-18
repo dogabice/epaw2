@@ -1,26 +1,56 @@
-<h2>Log in</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>E-PAW LOG IN USER</title>
+    <link rel="stylesheet" href="login.css">
+</head>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+<body>
+    <header>
+        <div class="container">
+        
+        <%= image_tag("epaw-logo.png", class: "logoimg",
+        style:"max-width: 179px;
+        max-height: 141px;
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);") %>
+            <h2 class="logintext">LOG IN</h2>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="field">
+                <%= f.email_field :email, id:"loginemail", autofocus: true, autocomplete: "email", placeholder:"E-MAIL" %>
+              </div>
+              
+              <div class="field">
+                <%= f.password_field :password, id:"loginpassword", autocomplete: "current-password", placeholder:"PASSWORD" %>
+              </div>
+              <% if devise_mapping.rememberable? %>
+                <div class="field">
+                  <%= f.check_box :remember_me ,id:"remember_me"%>
+                  <%= f.label :remember_me, id:"remember_me_text" %>
+                </div>
+              <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+              <div>
+                <%= f.submit "LOG IN", id:"loginbutton" %>
+              </div>
+            <% end %>
+            <%= render "users/shared/links" %>
+            
+                
+            </div>
+        </div>
+    </header>
 
-<%= render "users/shared/links" %>
+</body>
+
+</html>
+
+

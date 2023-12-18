@@ -1,0 +1,225 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 100;
+    line-height: 1.5;
+    background-color: #FFF6F1;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+.logoimg {
+    max-width: 179px;
+    max-height: 141px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container {
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+
+/*NavBar*/
+nav {
+    width: 100%;
+    position: fixed;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e3b297b0;
+    color: #000000;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    z-index: 500;
+}
+
+#logo-box {
+    float: left;
+    padding-top: 0.5rem;
+}
+
+#logo-box .logo {
+    color: #000000;
+    font-weight: 700;
+    font-size: 48px;
+    margin-left: 60px;
+}
+
+#nav-links {
+    float: right;
+}
+
+#nav-links .nav-item {
+    /*menü bardaki ifadeleri yan yana almak için*/
+    float: left;
+    margin: 0.5rem;
+}
+
+#nav-links .nav-link {
+    color: #000000;
+    font-size: 1.6rem;
+    font-weight: 700;
+    display: block;
+    padding: 1.6rem;
+    letter-spacing: 0.1rem;
+    /*transition: color 0.4s; /*eğer renk değişim yapmak istersek onun belirli bir süre içinde değişmesini sağlar*/
+}
+
+#nav-links .nav-link:hover {
+    text-decoration: underline;
+}
+
+.circle-s {
+    width: 127px;
+    height: 127px;
+    background-color: #085F63;
+    border-radius: 50%;
+    position: fixed;
+    top: 150px;
+    left: 10px; /* İhtiyacınıza göre ayarlayın */
+    margin-left: -50px; /* Yarım genişliği kadar negatif margin ekleyerek, dairenin sol kenara göre konumunu ayarlayın */
+
+    text-align: left;
+    background: linear-gradient(10deg, #b5f0ec, #3F7F82, #085F63);
+}
+
+.circle-m {
+    width: 257px;
+    height: 257px;
+    background-color: #085F63;
+    border-radius: 50%;
+    position: fixed;
+    bottom: -7%;
+    right: -3%;
+    text-align: left;
+    background: linear-gradient(10deg, #085F63, #3F7F82, #b5f0ec);
+}
+
+.slogan {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%); 
+    margin-top: 475px; 
+}
+
+.nav-item {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333;
+    padding: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%; /* Change this to 100% to position the dropdown below the nav item */
+    left: 0;
+    background-color: #fff;
+    border-radius: 25%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+.dropdown .nav-link {
+    display: block;
+    padding: 0px;
+    color: #333;
+    text-decoration: none;
+    font-size: 10px; /* İstenilen boyutu ayarlayın */
+}
+
+.nav-item:hover .dropdown {
+    display: block;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    #logo-box .logo {
+        font-weight: 700;
+        font-size: 30px;
+        margin-left: 10px;
+    }
+    
+    #nav-links {
+        float: none;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    #nav-links .nav-item {
+        float: none;
+        margin: 0.3rem;
+        display: inline-block; /* Display items in a row */
+    }
+
+    #nav-links .nav-link {
+        padding: 5px; /* Adjust padding for better spacing */
+        font-size: 13px; /* Decrease font size for better readability */
+    }
+
+
+    .logoimg {
+        max-width: 158px;
+        max-height: 82px;
+    }
+    .circle-s{
+        width: 100px;
+        height: 100px;
+    }
+    .circle-m{
+        width: 150px;
+        height: 150px;
+    }
+    .slogan{
+        font-size: 20px;
+    }
+
+    
+}

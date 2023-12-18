@@ -26,7 +26,8 @@ Rails.application.routes.draw do
   authenticated :vet do
     root 'home#index', as: :authenticated_vet_root
   end
-
+  
+  get 'home/template'
   get 'home/account_type_login'
   get 'home/account_type_register'
   root 'home#index'
