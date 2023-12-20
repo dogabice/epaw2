@@ -1,0 +1,48 @@
+<div class="container">
+<%= form_with(model: appointment) do |form| %>
+  
+  <% if appointment.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+        <% appointment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+
+  <div >
+    <%= form.hidden_field :user_id, value: current_user.id %>
+  </div>
+  
+  <div class="form_inputs">
+
+  <div class="form_input">
+    <%= form.select :pet_id, current_user.pets.map { |p| [p.pet_name, p.id] }, class:"input", placeholder:"PET ID" %>
+  </div>
+
+  <div class="form_input">
+     <%= form.select :vet_id, Vet.all.collect { |v| [ v.first_name, v.id ] }, class:"input", placeholder:"VET ID"%>
+  </div>
+
+  <div class="form_input">
+    <%= form.datetime_field :date ,class:"input", placeholder:"DATE"%>
+  </div>
+
+  <div class="form_input">
+    <%= form.text_area :description,class:"description" , placeholder:"DESCRIPTION"%>
+  </div>
+
+  </div>
+  <div>
+    <%= form.submit class:"submitbutton",
+    style:"width: 300px;
+    height: 40px;"%>
+  </div>
+<% end %>
+
+</div>

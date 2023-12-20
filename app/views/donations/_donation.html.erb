@@ -1,18 +1,9 @@
+<div class="container">
+
 <div id="dom_id">
- 
+<div class="appointment">
 
-  <p>
-    <strong>Donation amount:</strong>
-    <%= donation.donation_amount %>
-  </p>
-
-  <p>
-    <strong>Donation date:</strong>
-    <%= donation.created_at %>
-  </p>
-
-  <p>
-
+  <p class="value">
   <strong>Donation made by:</strong>
   <% @userid = donation.user_id %>
   <% if (@userid!= nil) %>
@@ -21,8 +12,18 @@
   <% @vetid = donation.vet_id %>
   <%= Vet.find(@vetid).first_name %>
   <% end %>
-
-    <%= donation.vet_id %>
+  <%= donation.vet_id %>
   </p>
 
+  <p class="value">
+    <strong>Donation amount:</strong>
+    <%= donation.donation_amount %>
+  </p>
+
+  <p class="value">
+    <strong>Donation date:</strong>
+    <%= donation.created_at %>
+  </p>
+  </div>
+</div>
 </div>

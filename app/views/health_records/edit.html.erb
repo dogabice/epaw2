@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-PAW EDIT HEALTH RECORD</title>
+</head>
+
+<body>
+    <header>
+      <div class="container">
+
+      <h1 class="edit_text">Edit Health Record</h1>
+      <%= render "form", health_record: @health_record %>
+
+      <div class="back_btn">
+        <%= link_to image_tag("back-button.png", alt: "Back",style: "width: 50px; height: 50px;"), pet_health_record_path(@pet, @health_record) %>
+        </div>
+
+      </div>
+
+</header>
+</body>
+</html>
+
+
+
+
+
+

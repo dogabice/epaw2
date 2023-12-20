@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-PAW HEALTH RECORD</title>
+    <link rel="stylesheet" href="petprofileinfo.css">
+</head>
+<body>
+    <header>
+    
+    <%= render @health_record %>
+
+        <% if vet_signed_in? %>
+        <div class="petlinks">
+        <%= link_to "Edit this health record", edit_pet_health_record_path(@health_record) %> 
+        </div>
+        <%end%>
+
+        <div class="back_btn">
+        <%= link_to image_tag("back-button.png", alt: "Back",style: "width: 50px; height: 50px;"), pet_health_records_path %>
+        </div>
+        
+        <% if vet_signed_in? %>
+        <div class="delete_health_record_buttons">
+        <%= button_to "Delete this health record",pet_health_record_path(@pet, @health_record), method: :delete %>
+        </div>
+        <%end%>
+</header>
+</body>
+</html>

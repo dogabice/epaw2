@@ -36,6 +36,43 @@
                         <%= f.text_field :address, placeholder: "ADDRESS" %>
                     </div>
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>E-PAW CREATE AN ACCOUNT USER</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+    <header>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "vets/shared/error_messages", resource: resource %>
+      <label for="createanaccount" class="createanaccount">EDIT YOUR ACCOUNT</label>
+            <div id="inputvalues">
+
+                <div id="inputvalues1">
+                    <em class="text">NAME</em>
+                    <div class="nameforaccount">
+                        <%= f.text_field :first_name,autofocus: true, placeholder: "NAME" %>
+                    </div>
+                    <em class="text">SURNAME</em>
+                    <div class="surnameforaccount">
+                        <%= f.text_field :last_name, placeholder: "SURNAME" %>
+                    </div>
+                    <em class="text">PHONE NUMBER</em>
+                    <div class="phonenumforaccount">
+                        <%= f.text_field :phone, placeholder: "PHONE NUMBER" %>
+                    </div>
+                    <em class="text">ADDRESS</em>
+                    <div class="addressforaccount">
+                        <%= f.text_field :address, placeholder: "ADDRESS" %>
+                    </div>
+
                     <em class="birthdate_text">BIRTH DATE</em>
                     <div class="birthdateforaccount">
                         <%= f.date_select :birth_date, start_year: 1900, end_year: Date.today.year, placeholder: "BIRTH DATE" %>
@@ -58,20 +95,19 @@
                         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
                     <% end %>
 
-                    <div class="passwordforaccount">
-                        <%= f.password_field :password, autocomplete: "new-password", placeholder:"NEW PASSWORD" %>
-                    <% if @minimum_password_length %>
-                        <em><%= @minimum_password_length %> characters minimum</em>
-                    <% end %>
-                    </div>
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
 
-                    <div class="passwordforaccount">
-                        <%= f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "PASSWORD CONFIRMATION" %>
-                    </div>
-
-                    <div class="passwordforaccount">
-                        <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "CURRENT PASSWORD" %>
-                    </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
 
                     <div >Unhappy?
                      <%= button_to "Cancel my account",
@@ -86,20 +122,10 @@
                       border: none;" %>
                     </div>
 
-                    <div>
-                        <%= f.submit "UPDATE  ", style: "width: 140px;
-                        height: 40px;
-                        font-size: 20px;
-                        font-weight: bold;
-                        text-align: center;
-                        border-radius: 40px;
-                        border: none;
-                        background: linear-gradient(10deg, #085F63, #3F7F82, #b5f0ec);
-                        color: #fff;
-                        position: absolute;
-                        margin-top: -50px"%>
-                    </div>
-              <% end %>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
 
         
     </header>

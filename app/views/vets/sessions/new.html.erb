@@ -23,6 +23,9 @@
         transform: translateX(-50%);") %>
             <h2 class="logintext">LOG IN</h2>
 
+
+            <div class="loginpage">
+
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
               <div class="field">
                 <%= f.email_field :email, id:"loginemail", autofocus: true, autocomplete: "email", placeholder:"E-MAIL" %>
@@ -38,32 +41,9 @@
                 </div>
               <% end %>
 
-              <div>
-                <%= f.submit "LOG IN", id:"loginbutton" %>
-              </div>
-            <% end %>
-            <%= render "vets/shared/links" %>
-            
-                
-            </div>
-        </div>
-    </header>
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
 
-</body>
-
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%= render "vets/shared/links" %>

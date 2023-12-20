@@ -1,10 +1,24 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-PAW DONATIONS</title>
+    <link rel="stylesheet" href="appointment.css">
+    
+</head>
 
-<%= render @donation %>
+<body>
+    <header>
+    <%= render @donation %>
 
-<div>
-  <%= link_to "Edit this donation", edit_donation_path(@donation) %> |
-  <%= link_to "Back to donations", donations_path %>
+  <div class="back_btn">
+      <%= link_to image_tag("back-button.png", alt: "Back",style: "width: 50px; height: 50px;"), donations_path %>
+  </div>
+  <div class="delete_appointment_button">
+  <%= button_to "Delete this donation", @donation, method: :delete %>
+  </div>
 
-  <%= button_to "Destroy this donation", @donation, method: :delete %>
-</div>
+</header>
+</body>
+</html>

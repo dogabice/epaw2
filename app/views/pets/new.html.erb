@@ -1,9 +1,25 @@
-<h1>New pet</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<%= render "form", pet: @pet %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-PAW NEW PET</title>
+</head>
 
-<br>
+<body>
+    <header>
+    <h1 class="edit_text">New pet</h1>
 
-<div>
-  <%= link_to "Back to pets", pets_path %>
-</div>
+    <%= render "form", pet: @pet %>
+
+    <div class="back_btn">
+      <%= link_to image_tag("back-button.png", alt: "Back",style: "width: 50px; height: 50px;"), pets_path %>
+    </div>
+
+    </header>
+</body>
+</html>
+
+
+

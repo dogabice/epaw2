@@ -1,0 +1,41 @@
+<div class="container">
+<%= form_with(model: health_record, url: pet_health_records_path) do |form| %>
+  <% if health_record.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(health_record.errors.count, "error") %> prohibited this health_record from being saved:</h2>
+
+      <ul>
+        <% health_record.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.hidden_field :pet_id, value: @pet.id, class:"input" %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :vet_id, value: current_vet.id ,class:"input" %>
+  </div>
+
+  <div class="form_inputs_healthrecord">
+
+  <div class="form_input">
+    <%= form.text_area :health_treatments, placeholder:"Health Treatments"%>
+  </div>
+
+  <div class="form_input">
+    <%= form.text_area :health_notes, placeholder:"Health Notes" %>
+  </div>
+  
+  </div>
+
+  <div>
+    <%= form.submit class:"submitbutton",
+    style:"width: 300px;
+    height: 40px;"%>
+  </div>
+<% end %>
+</div>

@@ -23,34 +23,29 @@
         transform: translateX(-50%);") %>
             <h2 class="logintext">LOG IN</h2>
 
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-              <div class="field">
-                <%= f.email_field :email, id:"loginemail", autofocus: true, autocomplete: "email", placeholder:"E-MAIL" %>
-              </div>
-              
-              <div class="field">
-                <%= f.password_field :password, id:"loginpassword", autocomplete: "current-password", placeholder:"PASSWORD" %>
-              </div>
-              <% if devise_mapping.rememberable? %>
-                <div class="field">
-                  <%= f.check_box :remember_me ,id:"remember_me"%>
-                  <%= f.label :remember_me, id:"remember_me_text" %>
-                </div>
-              <% end %>
+            <div class="loginpage">
 
-              <div>
-                <%= f.submit "LOG IN", id:"loginbutton" %>
-              </div>
-            <% end %>
-            <%= render "users/shared/links" %>
-            
-                
-            </div>
-        </div>
-    </header>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
 
-</body>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
 
-</html>
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
 
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
 
+<%= render "users/shared/links" %>

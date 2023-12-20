@@ -1,0 +1,23 @@
+
+<div class="container">
+<div id="<%= dom_id health_record %>">
+<div class="health_record">
+
+  <p class="value">
+    <strong>Health treatments:</strong>
+    <%= health_record.health_treatments %>
+  </p>
+
+  <p class="value">
+    <strong>Health notes:</strong>
+    <%= health_record.health_notes %>
+  </p>
+
+  <p class="value">
+  <strong>Vet Name:</strong>
+  <%= health_record.vet.first_name %>
+</p>
+
+</div>
+</div>
+</div>

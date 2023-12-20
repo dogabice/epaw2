@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 100;
+    line-height: 1.5;
+    background-color: #FFF6F1;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container {
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+
+header {
+    background-color: #FFF6F1;
+    height: 1000px;
+    text-align: center;
+    padding-top: calc(106px + 4rem);
+    /*navbar fixed olduğu için eklentilerin altta kalmasını engellemek için bu fonksiyonu kullanabiliriz (106= navbar ın kapladığı alan)*/
+}
+
+/*--------------------*/
+
+.edit_text{
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center; /* Center the text without absolute positioning */
+    margin-top: 2rem; /* Adjust as needed */
+}
+
+.form_inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.form_inputs input,
+.form_inputs select,
+.form_inputs textarea {
+    width: 400px;
+    height: 50px;
+    border: 2px solid #fff;
+    background-color: #fff;
+    border-radius: 30px;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 15px;
+    box-shadow: 2px 2px 2px #656464;
+    margin-bottom: 20px; /* 20px boşluk ekleyerek sırala */
+}
+
+
+.form_inputs_healthrecord{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+.form_inputs_healthrecord input,
+.form_inputs_healthrecord select,
+.form_inputs_healthrecord textarea{
+    width: 600px;
+    height: 150px;
+    border: 2px solid #fff;
+    background-color: #fff;
+    border-radius: 30px;
+    text-align: left;
+    padding: 20px;
+    font-size: 15px;
+    box-shadow: 2px 2px 2px #656464;
+    margin-bottom: 20px; /* 20px boşluk ekleyerek sırala */
+
+}
+
+.back_btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(10deg, #085F63, #3F7F82, #b5f0ec);
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.back_btn:hover {
+    background: linear-gradient(10deg, #740a31, #b71e56, #b28394);
+}
+.submitbutton{
+    font-size: 20px; /* Daha küçük bir font size ayarı */
+    border: none;
+    background: linear-gradient(10deg, #085F63, #3F7F82, #b5f0ec);
+    box-shadow: 2px 2px 2px #656464;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Link altındaki varsayılan alt çizgiyi kaldırma */
+    color: #fff;
+    text-transform: capitalize;
+}

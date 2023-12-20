@@ -1,15 +1,42 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>Pets</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-PAW PET PROFILE CARDS</title>
+    <link rel="stylesheet" href="petprofilecards.css">
+</head>
 
-<div id="pets">
-  <% @pets.each do |pet| %>
-    <%= render pet %>
-    <p>
-      <%= link_to "Show this pet", pet %>
-    </p>
-  <% end %>
-</div>
+<body>
+    <header>
+        <div id="pets" class="container">
+        
+            <h2 class="petstitle">Pets</h2>
+            </br></br></br>
+            
+            <% @pets.each do |pet| %>
+              <a class="pet-card-link" href="<%= pet_path(pet) %>">
+                <div id="pet-card">
+                <% if pet.avatar.present? %>
+                 <%= image_tag pet.avatar.url, class: 'petphoto'%>
+                <% end %>
 
-<%= link_to "New pet", new_pet_path %>
-<%= link_to "Back", root_path%>
+                  <p class="nameofpet">
+                    <%= pet.pet_name %>
+                  </p>
+                </div>
+              </a>
+            <% end %>
+    
+        </div>
+
+        <% if user_signed_in? %>
+        <%= link_to "+", new_pet_path, method: :post, id: "plusbutton", style: "text-decoration:none; color: #000;" %>
+        <% end %>
+
+    </header>
+
+</body>
+
+</html>

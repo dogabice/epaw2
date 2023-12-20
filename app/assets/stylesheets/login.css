@@ -85,7 +85,7 @@ header {
     transform: translateX(-50%);
 }
 
-input {
+.loginpage input {
     display: block;
     margin-bottom: 20px;
     width: 400px;

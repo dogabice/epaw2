@@ -1,0 +1,158 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 100;
+    line-height: 1.5;
+    background-color: #FFF6F1;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container {
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+
+header {
+    background-color: #FFF6F1;
+    height: 1000px;
+    text-align: center;
+    padding-top: calc(106px + 4rem);
+    /*navbar fixed olduğu için eklentilerin altta kalmasını engellemek için bu fonksiyonu kullanabiliriz (106= navbar ın kapladığı alan)*/
+}
+.donation-item {
+    margin-bottom: 20px; /* Veriler arasında boşluk bırakmak için */
+}
+
+.card {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.card-body {
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 200px;
+    background-color: #FFF;
+    box-shadow: 2px 2px 2px #656464;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.appointment_text {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center; 
+    margin-top: 2rem; 
+}
+
+#donations p {
+    margin: 10px 0;
+}
+
+#friends {
+    margin-top: 20px;
+}
+
+.show_donation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.show_donation a {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 40px;
+    border: none;
+    padding-top: 10px;
+    background: linear-gradient(10deg, #085F63, #3F7F82, #b5f0ec);
+    color: #fff;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+#new_donation {
+    width: 200px;
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: capitalize;
+}
+
+.donation_infos {
+    width: 400px;
+    position: relative;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: left;
+    padding-left: 20px;
+    border: 2px solid #FFF;
+    background-color: #FFF;
+    box-shadow: 2px 2px 2px #656464;
+}
+.donation_info {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.back_btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(10deg, #085F63, #3F7F82, #b5f0ec);
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.back_btn:hover {
+    background: linear-gradient(10deg, #740a31, #b71e56, #b28394);
+}
+
