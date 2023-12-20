@@ -1,0 +1,162 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 100;
+    line-height: 1.5;
+    background-color: #FFF6F1;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container {
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+header {
+    background-color: #FFF6F1;
+    height: 1000px;
+    text-align: center;
+    padding-top: calc(106px + 4rem);
+    /*navbar fixed olduğu için eklentilerin altta kalmasını engellemek için bu fonksiyonu kullanabiliriz (106= navbar ın kapladığı alan)*/
+}
+
+/*TITLE*/
+.petstitle{
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 15%;
+    left: 48%;
+}
+
+#pet-card {
+    width: 500px;
+    height: 200px;
+    border: none;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px #656464;
+    margin-top: 20px; /* Adjust the margin as needed */
+    border-radius: 70px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adjust the gap as needed */
+    position: relative; /* Add this line to make position relative */
+    left: 50%;
+    transform: translateX(-50%);
+}
+  
+
+.petphoto{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    position: fixed;
+    left: 30px;
+    top: 10px;
+}
+.nameofpet{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    color: #000;
+    margin: auto;
+    text-transform: capitalize;
+    padding-left: 30px;
+}
+#plusbutton {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-size: 90px; /* Daha küçük bir font size ayarı */
+    border: none;
+    background-color: #fff;
+    box-shadow: 2px 2px 2px #656464;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#plusbutton a {
+    text-decoration: none; /* Link altındaki varsayılan alt çizgiyi kaldırma */
+    color: #000; /* Link rengini ayarlama */
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 2vw;
+    }
+
+    header {
+        height: 40vh;
+    }
+
+    .petstitle {
+        font-size: 6vw;
+    }
+
+    #pet1 {
+        width: 80%;
+        height: 30vw;
+        max-height: 300px;
+    }
+
+    .petphoto {
+        width: 50%;
+        max-width: 120px;
+        max-height: 120px;
+        margin-left:10px;
+        margin-top: 5px;
+    }
+
+    .nameofpet {
+        font-size:1000vw;
+        padding-left: 10vw;
+    }
+
+    #plusbutton {
+        width: 20vw;
+        max-width: 80px;
+        height: 20vw;
+        max-height: 80px;
+        font-size: 10vw;
+        margin-bottom: 20vw;
+    }
+}

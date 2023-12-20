@@ -1,4 +1,5 @@
-<%= form_with(model: pet) do |form| %>
+<div class="container">
+<%= form_with(model: pet, html: {multipart: true}) do |form| %>
   <% if pet.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
@@ -11,30 +12,39 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :pet_name, style: "display: block" %>
-    <%= form.text_field :pet_name %>
+  <div class="form_inputs">
+
+  <div class="pet-avatar">
+  <%= form.label :avatar %> </br>
+  <%= form.file_field :avatar %>
   </div>
 
-  <div>
-    <%= form.label :pet_birthdate, style: "display: block" %>
-    <%= form.date_field :pet_birthdate %>
+  <div class="form_input">
+    <%= form.text_field :pet_name, placeholder:"PET NAME"  %>
   </div>
 
-  <div>
-    <%= form.label :animal_species, style: "display: block" %>
-    <%= form.text_field :animal_species %>
+  <div class="form_input">
+    <%= form.date_field :pet_birthdate,placeholder:"PET BIRTH DATE"  %>
   </div>
 
-  <div>
-    <%= form.label :pet_kind, style: "display: block" %>
-    <%= form.text_field :pet_kind %>
+  <div class="form_input">
+    <%= form.text_field :animal_species,placeholder:"PET SPECIES"  %>
+  </div>
+
+  <div class="form_input">
+    <%= form.text_field :pet_kind,placeholder:"PET KIND"  %>
   </div>
 
   <div>
      <%= form.number_field :user_id, value: current_user.id , type:  :hidden%>
   </div>
- 
-    <%= form.submit %>
+
+  </div>
+
+  <div>
+    <%= form.submit class:"submitbutton",
+    style:"width: 250px;
+    height: 40px;"%>
   </div>
 <% end %>
+</div>

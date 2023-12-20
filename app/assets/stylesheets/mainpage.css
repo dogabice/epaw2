@@ -1,0 +1,138 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 100;
+    line-height: 1.5;
+    background-color: #FFF6F1;
+}
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.container {
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+header {
+    background-color: #FFF6F1;
+    height: 1000px;
+    text-align: center;
+    padding-top: calc(106px + 4rem);
+    /*navbar fixed olduğu için eklentilerin altta kalmasını engellemek için bu fonksiyonu kullanabiliriz (106= navbar ın kapladığı alan)*/
+}
+
+header h1 {
+    font-size: 55px;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    position: fixed;
+    left: 700px;
+    top: 275px;
+}
+
+.welcome-text {
+    font-size: 25px;
+    width: 400px;
+    height: 243px;
+    position: fixed;
+    left: 700px;
+    top: 350px;
+    text-align: left;
+}
+
+.circle-l {
+    width: 491px;
+    height: 491px;
+    background-color: #085F63;
+    border-radius: 50%;
+    position: fixed;
+    left: -10%;
+    bottom: -30%;
+    text-align: left;
+    background: linear-gradient(10deg, #085F63, #3F7F82, #b5f0ec);
+    z-index: 2;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .logoimg {
+        width: 50%;
+        /* Örnek bir değer, ihtiyacınıza göre ayarlayın */
+        max-width: none;
+        /* Maksimum genişlik sınırlamasını kaldırın */
+        height: auto;
+        left: 50%;
+        top: 18%;
+        transform: translateX(-50%);
+    }
+
+    .pawimg {
+        max-width: 50px;
+        max-height: auto;
+    }
+
+    header {
+        height: auto;
+        padding-top: 4rem;
+        background-color: #FFF6F1;
+    }
+
+    header h1 {
+        font-size: 30px;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%);
+    }
+
+    .welcome-text {
+        width: 100%;
+        left: 50%;
+        top: 63%;
+        transform: translateX(-50%);
+        font-size: 20px;
+        padding: 20px;
+    }
+
+    .circle-l {
+        width: 200px;
+        height: 200px;
+        left: -10%;
+        bottom: -13%;
+    }
+}

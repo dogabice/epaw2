@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_with(model: donation) do |form| %>
   <% if donation.errors.any? %>
     <div style="color: red">
@@ -10,15 +11,16 @@
       </ul>
     </div>
   <% end %>
+   
+  <div class="form_inputs">
 
-  <div>
-    <% form.label :donation_date, style: "display: block" %>
-    <% form.datetime_field :donation_date %>
+  <div class="form_input">
+    <% form.datetime_field :donation_date, placeholder:"DONATION DATE: " %>
   </div>
 
-  <div>
-    <%= form.label :donation_amount, style: "display: block" %>
-    <%= form.number_field :donation_amount %>
+  <div class="form_input">
+    <%= form.number_field :donation_amount, placeholder:"DONATION AMOUNT: " %>
+  </div>
   </div>
 
 
@@ -33,8 +35,12 @@
   <% else %>
   <% end %>
 
+
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"submitbutton",
+    style:"width: 300px;
+    height: 40px;"%>
   </div>
 
 <% end %>
+</div>

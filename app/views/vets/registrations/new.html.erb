@@ -1,59 +1,76 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "vets/shared/error_messages", resource: resource %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>E-PAW CREATE AN ACCOUNT VET</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
 
-  <div class="field">
-  <%= f.label :first_name %><br />
-  <%= f.text_field :first_name%>
-</div>
+<body>
+    <header>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "vets/shared/error_messages", resource: resource %>
 
-<div class="field">
-  <%= f.label :last_name %><br />
-  <%= f.text_field :last_name %>
-</div>
+            <label for="createanaccount" class="createanaccount">CREATE AN ACCOUNT</label>
+            <div id="inputvalues">
 
-<div class="field">
-  <%= f.label :phone %><br />
-  <%= f.text_field :phone %>
-</div>
+                <div id="inputvalues1user_vet">
+                    <div class="nameforaccount">
+                        <%= f.text_field :first_name,autofocus: true, placeholder: "NAME" %>
+                    </div>
 
-<div class="field">
-  <%= f.label :address %><br />
-  <%= f.text_field :address %>
-</div>
+                    <div class="surnameforaccount">
+                        <%= f.text_field :last_name, placeholder: "SURNAME" %>
+                    </div>
 
-<div class="field">
-  <%= f.label :birth_date %><br />
-  <%= f.date_select :birth_date, start_year: 1900, end_year: Date.today.year%>
-</div>
+                    <div class="addressforaccount">
+                        <%= f.text_field :address, placeholder: "ADDRESS" %>
+                    </div>
 
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-</div>
+                    <div class="phonenumforaccount">
+                        <%= f.text_field :phone, placeholder: "PHONE NUMBER" %>
+                    </div>
 
-<div class="field">
-  <%= f.label :certificate_no %><br />
-  <%= f.text_field :certificate_no %>
-</div>
+                    <div class="certificatenumforaccount">
+                        <%= f.text_field :certificate_no, placeholder: "CERTIFICATE NUMBER" %>
+                    </div>
 
-<div class="field">
-  <%= f.label :password %>
-  <% if @minimum_password_length %>
-  <em>(<%= @minimum_password_length %> characters minimum)</em>
-  <% end %><br />
-  <%= f.password_field :password, autocomplete: "new-password" %>
-</div>
+                </div>
 
-<div class="field">
-  <%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-</div>
+                <div id="inputvalues2user_vet">
+                <em class="birthdate_text">BIRTH DATE</em>
+                    <div class="birthdateforaccount">
+                        <%= f.date_select :birth_date, start_year: 1900, end_year: Date.today.year ,placeholder: "BIRTH DATE"%>
+                    </div> 
 
-<div class="actions">
-  <%= f.submit "Sign up" %>
-</div>
-<% end %>
+                    <div class="emailforaccount">
+                        <%= f.email_field :email, autocomplete: "email", placeholder: "E-MAIL" %>
+                    </div>
 
-<%= render "vets/shared/links" %>
+                    <div class="passwordforaccount">
+                        <% if @minimum_password_length %>
+                            <em>(<%= @minimum_password_length %> characters minimum)</em>
+                        <% end %><br />
+                        <%= f.password_field :password, autocomplete: "new-password", placeholder: "PASSWORD" %>
+                    </div>
+
+                    <div class="field">
+                        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "PASSWORD CONFIRMATION" %>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+            <%= f.submit "SIGN UP ", class: "submitbutton" %>
+            </div>
+        <%= render "vets/shared/links" %>
+        <% end %>
+    </header>
+</body>
+
+</html>
+

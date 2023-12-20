@@ -1,6 +1,6 @@
 class HealthRecordsController < ApplicationController
   before_action :set_health_record, only: %i[ show edit update destroy ]
-
+  
   # GET /health_records or /health_records.json
   def index
     @pet = Pet.find(params[:pet_id])
@@ -10,10 +10,10 @@ class HealthRecordsController < ApplicationController
 
   # GET /health_records/1 or /health_records/1.json
   def show
-      
+
     @health_record = HealthRecord.find(params[:id])
     @pet = @health_record.pet
-
+    
   end
 
   # GET /health_records/new
@@ -24,7 +24,9 @@ class HealthRecordsController < ApplicationController
 
   # GET /health_records/1/edit
   def edit
-  end
+    @health_record = HealthRecord.find(params[:id])
+    @pet = @health_record.pet
+     end
 
   # POST /health_records or /health_records.json
   def create
@@ -43,9 +45,10 @@ class HealthRecordsController < ApplicationController
 
   # PATCH/PUT /health_records/1 or /health_records/1.json
   def update
+    @health_record = HealthRecord.find(params[:id])
     respond_to do |format|
       if @health_record.update(health_record_params)
-        format.html { redirect_to health_record_url(@health_record), notice: "Health record was successfully updated." }
+        format.html { redirect_to pet_health_record_url(@health_record), notice: "Health record was successfully updated." }
         format.json { render :show, status: :ok, location: @health_record }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +59,8 @@ class HealthRecordsController < ApplicationController
 
   # DELETE /health_records/1 or /health_records/1.json
   def destroy
-    @health_record.destroy!
+    @pet = Pet.find(params[:pet_id])
+    @health_record.destroy
 
     respond_to do |format|
       format.html { redirect_to pet_health_records_url(@pet), notice: "Health record was successfully destroyed." }
@@ -68,7 +72,7 @@ class HealthRecordsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_health_record
       @health_record = HealthRecord.find(params[:id])
-    end
+      end
 
     # Only allow a list of trusted parameters through.
     def health_record_params

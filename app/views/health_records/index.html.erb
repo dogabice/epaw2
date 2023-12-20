@@ -1,18 +1,40 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-PAW HEALTH RECORD</title>
+    <link rel="stylesheet" href="healthrecords.css">
+</head>
 
-<h1>Health records</h1>
+<body>
+    <header>
+      <div class="container">
 
-<div id="health_records">
-  <% @health_records.each do |health_record| %>
-    <p>
-    <strong>Health Treatment:</strong>
-    <%= health_record.health_treatments %>
-  </p>
+      <h1 class="health_record_text">Health records</h1>
 
-    <p>
-      <%= link_to "Show this health record", pet_health_record_path(@pet, health_record) %>
-    </p>
+      <div id="health_records">
+        <% @health_records.each do |health_record| %>
+        <div class="health_record_box">
+
+        <p class="health_info">
+          <strong>Health Treatment:</strong>
+          <%= health_record.health_treatments %>
+        </p>
+      
+        <div class="show_hr">
+          <%= link_to "Show this health record", pet_health_record_path(@pet, health_record) %>
+        </div>
+    </div>
   <% end %>
-  <%= link_to "Back" , @pet%>
 </div>
 
+      
+      <div class="back_btn">
+      <%= link_to image_tag("back-button.png", alt: "Back",style: "width: 50px; height: 50px;"), pet_path(@pet) %>
+      </div>
+ </div>
+
+</header>
+</body>
+</html>

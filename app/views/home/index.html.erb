@@ -1,24 +1,34 @@
-<h1>Home index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!DOCTYPE html>
+<html lang="en">
 
-<% if user_signed_in? %>
-    
-    <%= link_to 'Edit Profile', edit_user_registration_path%><br/>
-    <%= link_to 'Pets', pets_path%>
-    <%= link_to 'Donations', donations_path%>
-    <%= link_to 'Appointment', appointments_path%>
-    <%= button_to 'Sign Out', destroy_user_session_path, method: :delete%>
 
-<% elsif vet_signed_in? %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>E-PAW MAIN PAGE</title>
+    <link rel="stylesheet" href="mainpage.css">
+</head>
 
-    <%= link_to 'Edit Profile', edit_vet_registration_path%><br/>
-    <%= link_to 'Pets', pets_path%>
-    <%= link_to 'Donations', donations_path%>
-    <%= button_to 'Sign Out', destroy_vet_session_path, method: :delete%>
+<body>
+    <header>
+        <div class="container">
+            <%= image_tag("epaw-logo.png", class: "logoimg",
+            style:"max-width: 539px;
+            max-height: 425px;
+            position: fixed; left: 500px; top: 150px;") %>
 
-<% else %>
+            <h1>Hands for Paws
+            <%= image_tag("pawpng.png", class: "pawimg", 
+            style: "max-width: 50px; max-height: auto; background-color: #FFF6F1;") %>
 
-    <%= link_to 'Sign In', home_account_type_login_path%>
-    <%= link_to 'Sign Up', home_account_type_register_path%>
+            </h1>
+            <div class="welcome-text">Hi. E-Paw invites you to be a hero for all paws, owned and stray, making their lives easier and more
+                joyful, one paw at a time.</div>
+        </div>
+        <div class="circle-l"></div>
+    </header>
+</body>
 
-<% end %>
+</html>

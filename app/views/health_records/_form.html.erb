@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_with(model: health_record, url: pet_health_records_path) do |form| %>
   <% if health_record.errors.any? %>
     <div style="color: red">
@@ -12,24 +13,29 @@
   <% end %>
 
   <div>
-    <%= form.hidden_field :pet_id, value: @pet.id %>
+    <%= form.hidden_field :pet_id, value: @pet.id, class:"input" %>
   </div>
 
   <div>
-    <%= form.hidden_field :vet_id, value: current_vet.id %>
+    <%= form.hidden_field :vet_id, value: current_vet.id ,class:"input" %>
+  </div>
+
+  <div class="form_inputs_healthrecord">
+
+  <div class="form_input">
+    <%= form.text_area :health_treatments, placeholder:"Health Treatments"%>
+  </div>
+
+  <div class="form_input">
+    <%= form.text_area :health_notes, placeholder:"Health Notes" %>
+  </div>
+  
   </div>
 
   <div>
-    <%= form.label :health_treatments, style: "display: block" %>
-    <%= form.text_area :health_treatments %>
-  </div>
-
-  <div>
-    <%= form.label :health_notes, style: "display: block" %>
-    <%= form.text_area :health_notes %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class:"submitbutton",
+    style:"width: 300px;
+    height: 40px;"%>
   </div>
 <% end %>
+</div>

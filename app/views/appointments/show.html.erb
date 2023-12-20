@@ -1,12 +1,32 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-PAW APPOINTMENT</title>
+    <link rel="stylesheet" href="appointment.css">
+</head>
+<body>
+    <header>
 
 <%= render @appointment %>
 
-<div>
-  <% if user_signed_in?%>
-  <%= link_to "Edit this appointment", edit_appointment_path(@appointment) %> 
-  <% end %>|
-  <%= link_to "Back to appointments", appointments_path %>
 
-  <%= button_to "Destroy this appointment", @appointment, method: :delete %>
-</div>
+  <% if user_signed_in?%>
+  <div class="edit_app">
+  <%= link_to "Edit this appointment", edit_appointment_path(@appointment) %> 
+  </div>
+  <% end %>
+
+  <div class="back_btn">
+      <%= link_to image_tag("back-button.png", alt: "Back",style: "width: 50px; height: 50px;"), appointments_path %>
+  </div>
+
+  <div class="delete_appointment_button">
+  <%= button_to "Delete this appointment", @appointment, method: :delete %>
+  </div>
+
+
+</header>
+</body>
+</html>

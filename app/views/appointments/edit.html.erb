@@ -1,10 +1,23 @@
-<h1>Editing appointment</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-PAW APPOINTMENT</title>
+    
+</head>
 
-<%= render "form", appointment: @appointment %>
+<body>
+    <header>
+    <div class="container">
+        <h1 class="edit_text">Edit This Appoinment</h1>
 
-<br>
-
-<div>
-  <%= link_to "Show this appointment", @appointment %> |
-  <%= link_to "Back to appointments", appointments_path %>
-</div>
+        <%= render "form", appointment: @appointment %>
+  
+        <div class="back_btn">
+        <%= link_to image_tag("back-button.png", alt: "Back",style: "width: 50px; height: 50px;"), appointments_path %>
+        </div>
+    </div>
+</header>
+</body>
+</html>

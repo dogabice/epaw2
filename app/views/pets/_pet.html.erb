@@ -1,24 +1,33 @@
-<div id="<%= dom_id pet %>">
-  <p>
-    <strong>Pet name:</strong>
-    <%= pet.pet_name %>
-  </p>
+<div class="container">
+    <div id="<%= dom_id(@pet) %>">
 
-  <p>
-    <strong>Pet birthdate:</strong>
-    <%= pet.pet_birthdate %>
-  </p>
+    <%= image_tag pet.avatar.url, class: 'petphoto',style: 'width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    position: absolute;
+    top: 15%;
+    left: 40%;
+    transform: translateX(-50%);', alt: 'Pet Image' if pet.avatar? %>
 
-  <p>
-    <strong>Animal species:</strong>
-    <%= pet.animal_species %>
-  </p>
-
-  <p>
-    <strong>Pet kind:</strong>
-    <%= pet.pet_kind %>
-  </p>
-
-  
-
+            <p class="petname">
+            <%= @pet.pet_name %>
+            </p>
+          <div id="petinformations" class="pet-info-box">
+            <p class="petbirthdate">
+            <strong>Birth Date:</strong>
+            <%= @pet.pet_birthdate %>
+            </p>
+            </br>
+            <p class="petspecies">
+            <strong>Species:</strong>
+            <%= @pet.animal_species %>
+            </p>
+            </br>
+            <p class="petkind">
+            <strong>Kind:</strong>
+            <%= @pet.pet_kind %>
+            </p>
+          </div>
+    </div>
 </div>

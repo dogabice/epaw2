@@ -1,23 +1,27 @@
+
+<div class="container">
 <div id="<%= dom_id appointment %>">
   
-  <p>
+  <div class="appointment"> 
+  <p class="value">
     <strong>Pet Name: </strong>
     <%= Pet.find(appointment.pet_id).pet_name %>
   </p>
 
-  <p>
+  <p class="value">
     <strong>Vet Name: </strong>
     <%= Vet.find(appointment.vet_id).first_name %>
   </p>
 
-  <p>
+  <p class="value">
     <strong>Date: </strong>
     <%= appointment.date %>
   </p>
 
-  <p>
+  <p class="value">
     <strong>Description:</strong>
     <%= appointment.description %>
   </p>
-
+  </div>
+</div>
 </div>

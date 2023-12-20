@@ -1,14 +1,35 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-PAW PET PROFILE INFO</title>
+    <link rel="stylesheet" href="petprofileinfo.css">
+</head>
+<body>
+    <header>
+    
+    <%= render @pet %>
 
-<%= render @pet %>
+        <div class="petlinks">
+          <% if user_signed_in? %>
+          <%= link_to "Edit this pet", edit_pet_path(@pet)%>
+          <%end%>
+          <%= link_to "Health Records" , pet_health_records_path(@pet) %>
+          <%  if vet_signed_in? %>
+          <%= link_to "New health record", new_pet_health_record_path(@pet) %>
+          <%end%>
+        </div>
+
+        <div class="back_btn">
+        <%= link_to image_tag("back-button.png", alt: "Back",style: "width: 50px; height: 50px;"),pets_path %>
+        </div>
+
+        <div class="petbuttons">
+        <%= button_to "Delete Pet", @pet, method: :delete  %>
+        </div>
+</header>
+</body>
+</html>
 
 
-<div>
-  <%= link_to "Edit this pet", edit_pet_path(@pet) %> |
-  <%= link_to "Back to pets", pets_path %>
-  <%= link_to "Health Records", pet_health_records_path(@pet) %>
-  <%  if vet_signed_in? %>
-  <%= link_to "New health record", new_pet_health_record_path(@pet) %>
-  <%end%>
-  <%= button_to "Destroy this pet", @pet, method: :delete %>
-</div>
