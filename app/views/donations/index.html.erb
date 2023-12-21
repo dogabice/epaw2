@@ -38,13 +38,15 @@
      <% @userid = donation.user_id %>
      <% if (@userid!= nil) %>
      <%= User.find(@userid).first_name %>
+     <%= User.find(@userid).last_name %>
   
      <% else %>
      <% @vetid = donation.vet_id %>
      <%= Vet.find(@vetid).first_name %>
+     <%= Vet.find(@vetid).last_name %>
      <% end %>
      </div>
-     <%= donation.vet_id %>
+     <% donation.vet_id %>
      </p>
      <p class="show_app">
      <% link_to "Show this donation", donation %>
