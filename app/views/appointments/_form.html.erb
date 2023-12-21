@@ -30,7 +30,7 @@
   </div>
 
   <div class="form_input">
-    <%= form.datetime_field :date ,class:"input", placeholder:"DATE"%>
+    <%= form.datetime_select :date, minute_step: 30, default: { minute: 0 }%>
   </div>
 
   <div class="form_input">

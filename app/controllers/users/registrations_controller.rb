@@ -9,14 +9,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def update
-      if current_user.update(user_params)
-          flash[:notice] = "Profil başarıyla güncellendi."
-          redirect_to root_path
-        else
-          flash[:alert] = "Profil güncellenirken bir hata oluştu. Lütfen tekrar deneyin."
-          render :edit
-        end
+    @user = User.find(current_user.id)
+    respond_to do |format|
+      if @user.update_with_password(user_params)
+        sign_in @user, :bypass => true
+        format.html { redirect_to root_path }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+end
+
+private
+def password_params
+    params.require(:user).permit(:password, :password_confirmation, :current_password)
+end
 
 
   def sign_up_params
@@ -24,13 +33,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def account_update_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :first_name, :last_name, :phone, :birth_date, :address)
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :first_name, :last_name, :phone, :birth_date, :address, :current_password)
   end
 
   private
 
 def user_params
-  params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :phone, :birth_date, :address)
+  params.require(:user).permit(:email, :password, :password_confirmation, :first_name, :last_name, :phone, :birth_date, :address, :current_password)
 end
 
 
