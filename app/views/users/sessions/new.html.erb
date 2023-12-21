@@ -27,24 +27,34 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, id:"loginemail", autofocus: true, autocomplete: "email", placeholder:"E-MAIL" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, id:"loginpassword", autocomplete: "current-password", placeholder:"PASSWORD" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.check_box :remember_me ,id:"remember_me" %>
+      <%= f.label :remember_me, id:"remember_me_text" %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div>
+    <%= f.submit "Log in", style:"width: 140px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    position: fixed;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 40px;
+    border: none;
+    background: linear-gradient(10deg, #085F63, #3F7F82, #b5f0ec);
+    color: #fff;" %>
   </div>
 <% end %>
 
