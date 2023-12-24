@@ -4,6 +4,10 @@ class Vets::RegistrationsController < Devise::RegistrationsController
   include Accessible
   skip_before_action :check_user, except: [:new, :create]
   before_action :authenticate_user!, only: [:edit, :update]
+  before_action :check_unique_email, only: [:create]
+  before_action :validate_phone_number, only: [:create]
+  before_action :validate_certificate_number, only: [:create]
+
 
     def edit
     end
@@ -40,11 +44,47 @@ class Vets::RegistrationsController < Devise::RegistrationsController
       params.require(:vet).permit(:email, :password, :password_confirmation, :current_password, :first_name, :last_name, :phone, :birth_date, :address, :certificate_no, :current_password)
     end
 
-    private
 
   def user_params
     params.require(:vet).permit(:email, :password, :password_confirmation, :first_name, :last_name, :phone, :birth_date, :address, :certificate_no, :current_password)
   end
+
+  def check_unique_email
+    if User.exists?(email: sign_up_params[:email])
+      redirect_to new_user_registration_path, alert: 'Email address is already taken. Please choose another email address.'
+    end
+  end
+
+  def validate_phone_number
+    phone_number = sign_up_params[:phone]
+
+    unless valid_phone_number?(phone_number)
+      redirect_to new_user_registration_path, alert: 'Please enter a valid 11-digit phone number.'
+    end
+  end
+
+  def valid_phone_number?(phone_number)
+    # Remove any non-digit characters from the phone number
+    cleaned_number = phone_number.gsub(/\D/, '')
+
+    # Check if the cleaned number is exactly 11 digits
+    cleaned_number.length == 11
+  end
+
+  def validate_certificate_number
+    certificate_number = sign_up_params[:certificate_no]
+
+    unless valid_certificate_number?(certificate_number)
+      redirect_to new_user_registration_path, alert: 'Please enter a valid 6-digit certificate number.'
+    end
+  end
+  def valid_certificate_number?(certificate_number)
+    # Assuming certificate_number is a string
+    certificate_number.length == 6 && certificate_number =~ /^\d+$/
+  end
+
+
+
 
 
   
