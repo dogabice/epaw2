@@ -92,12 +92,12 @@ header h1 {
         padding-right: 1rem;
     }
     .logoimg {
-        width: 50%;
+        width: 45%;
         /* Örnek bir değer, ihtiyacınıza göre ayarlayın */
         max-width: none;
         /* Maksimum genişlik sınırlamasını kaldırın */
         height: auto;
-        left: 50%;
+        margin-left: -255px;
         top: 18%;
         transform: translateX(-50%);
     }

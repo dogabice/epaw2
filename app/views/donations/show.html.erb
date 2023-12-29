@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-PAW DONATIONS</title>
+    <title>E-PAW SHOW DONATIONS</title>
     <link rel="stylesheet" href="appointment.css">
-    
 </head>
 
 <body>
@@ -15,7 +14,7 @@
   <div class="back_btn">
       <%= link_to image_tag("back-button.png", alt: "Back",style: "width: 50px; height: 50px;"), donations_path %>
   </div>
-  <div class="delete_appointment_button">
+  <div class="delete_donation_button">
   <%= button_to "Delete this donation", @donation, method: :delete %>
   </div>
 

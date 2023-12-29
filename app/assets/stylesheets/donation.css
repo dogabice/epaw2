@@ -70,7 +70,7 @@ header {
     padding: 20px;
 }
 
-.appointment_text {
+.edit_text{
     position: absolute;
     top: 10%;
     left: 50%;
@@ -156,3 +156,48 @@ header {
     background: linear-gradient(10deg, #740a31, #b71e56, #b28394);
 }
 
+.delete_donation_button button{
+    width: auto;
+    height: 40px;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 40px;
+    border: none;
+    background: linear-gradient(10deg, #740a31, #b71e56, #b28394);
+    color: #fff;
+    margin: 0 30px;
+    padding: 0 10px;
+    position: absolute;
+    top: 27%;
+    left: 85%;
+    transform: translateX(-50%);
+    text-transform: capitalize;
+}
+.show_app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.show_app a {
+    width: 300px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 40px;
+    border: none;
+    padding-top: 10px;
+    background: linear-gradient(10deg, #085F63, #3F7F82, #b5f0ec);
+    color: #fff;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+#new_app{
+    width: 200px;
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: capitalize;
+}

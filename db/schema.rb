@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_20_170554) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_28_152335) do
   create_table "appointments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "pet_id", null: false
@@ -36,8 +36,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_170554) do
   create_table "health_records", force: :cascade do |t|
     t.integer "pet_id", null: false
     t.integer "vet_id", null: false
-    t.text "health_treatments"
-    t.text "health_notes"
+    t.text "health_treatments", null: false
+    t.text "health_notes", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pet_id"], name: "index_health_records_on_pet_id"
@@ -45,10 +45,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_20_170554) do
   end
 
   create_table "pets", force: :cascade do |t|
-    t.string "pet_name"
+    t.string "pet_name", null: false
     t.date "pet_birthdate"
-    t.string "animal_species"
-    t.string "pet_kind"
+    t.string "animal_species", null: false
+    t.string "pet_kind", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

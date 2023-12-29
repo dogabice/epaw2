@@ -12,7 +12,9 @@
 
 <body>
     <header>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <div class="container">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <label for="createanaccount" class="createanaccount">CREATE AN ACCOUNT</label>
             <div id="inputvalues">
 
@@ -58,10 +60,23 @@
             </div>
 
             <div>
-            <%= f.submit "SIGN UP ", class: "submitbutton" %>
+            <%= f.submit "SIGN UP ", style:"width: 140px;
+            height: 40px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            position: fixed;
+            top: 90%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 40px;
+            border: none;
+            background: linear-gradient(10deg, #085F63, #3F7F82, #b5f0ec);
+            color: #fff;" %>
             </div>
         <%= render "users/shared/links" %>
         <% end %>
+        </div>
     </header>
 </body>
 

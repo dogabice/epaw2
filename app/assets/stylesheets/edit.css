@@ -49,11 +49,11 @@ header {
     /*navbar fixed olduğu için eklentilerin altta kalmasını engellemek için bu fonksiyonu kullanabiliriz (106= navbar ın kapladığı alan)*/
 }
 
-/*--------------------*/
+/*------FORM-------*/
 
 .edit_text{
     position: absolute;
-    top: 14%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 40px;
@@ -68,7 +68,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 80px;
+    margin-top: 75px;
 }
 
 .form_inputs input,
@@ -85,7 +85,19 @@ header {
     box-shadow: 2px 2px 2px #656464;
     margin-bottom: 20px; /* 20px boşluk ekleyerek sırala */
 }
-
+/*for date inputs*/
+.form_input_date select{
+    width: 100px;
+    height: 50px;
+    border: 2px solid #fff;
+    background-color: #fff;
+    border-radius: 30px;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 13px;
+    box-shadow: 2px 2px 2px #656464;
+    margin-bottom:20px;
+}
 
 .form_inputs_healthrecord{
     display: flex;

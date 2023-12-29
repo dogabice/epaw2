@@ -1,13 +1,10 @@
 <div class="container">
 <%= form_with(model: pet, html: {multipart: true}) do |form| %>
   <% if pet.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
-
+    <div  class="error_message " style="top:13%;">
       <ul>
-        <% pet.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
+          <li><%= 'Hatalı Giriş Yaptınız' %></li>
+        <p>Please try again</p>
       </ul>
     </div>
   <% end %>
@@ -15,8 +12,8 @@
   <div class="form_inputs">
 
   <div class="pet-avatar">
-  <%= form.label :avatar %> </br>
-  <%= form.file_field :avatar %>
+  <em>PET PHOTO</em> </br>
+  <%= form.file_field :avatar ,style:"padding-left: 10px; padding-top:10px;" %>
   </div>
 
   <div class="form_input">
@@ -44,7 +41,12 @@
   <div>
     <%= form.submit class:"submitbutton",
     style:"width: 250px;
-    height: 40px;"%>
+    height: 40px;
+    border-radius:20px;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);"%>
   </div>
 <% end %>
 </div>

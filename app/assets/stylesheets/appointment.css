@@ -96,7 +96,7 @@ header {
 
 
 
-/*FOR INDEX.HTML*/
+/*INDEX APPOINTMENT*/
 .appointment_text {
     position: absolute;
     top: 10%;
@@ -204,7 +204,3 @@ header {
     transform: translateX(-50%);
     text-transform: capitalize;
 }
-
-/*DONATION*/
-
-/* DONATION CSS */
