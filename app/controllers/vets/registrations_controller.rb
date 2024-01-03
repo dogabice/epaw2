@@ -8,15 +8,28 @@ class Vets::RegistrationsController < Devise::RegistrationsController
     def edit
     end
 
+
+
     def update
-        if current_vet.update(user_params)
-            flash[:notice] = "Profil başarıyla güncellendi."
-            redirect_to root_path
-          else
-            flash[:alert] = "Profil güncellenirken bir hata oluştu. Lütfen tekrar deneyin."
-            render :edit
-          end
+      @vet = Vet.find(current_vet.id)
+      respond_to do |format|
+        if @vet.update_with_password(user_params)
+          sign_in @vet, :bypass => true
+          format.html { redirect_to root_path }
+          format.json { render :show, status: :ok, location: @vet }
+        else
+          format.html { render :edit }
+          format.json { render json: @vet.errors, status: :unprocessable_entity }
         end
+      end
+  end
+  
+  private
+  def password_params
+      params.require(:vet).permit(:password, :password_confirmation, :current_password)
+  end
+
+
 
 
     def sign_up_params
@@ -24,13 +37,13 @@ class Vets::RegistrationsController < Devise::RegistrationsController
     end
   
     def account_update_params
-      params.require(:vet).permit(:email, :password, :password_confirmation, :current_password, :first_name, :last_name, :phone, :birth_date, :address, :certificate_no)
+      params.require(:vet).permit(:email, :password, :password_confirmation, :current_password, :first_name, :last_name, :phone, :birth_date, :address, :certificate_no, :current_password)
     end
 
     private
 
   def user_params
-    params.require(:vet).permit(:email, :password, :password_confirmation, :first_name, :last_name, :phone, :birth_date, :address, :certificate_no)
+    params.require(:vet).permit(:email, :password, :password_confirmation, :first_name, :last_name, :phone, :birth_date, :address, :certificate_no, :current_password)
   end
 
 

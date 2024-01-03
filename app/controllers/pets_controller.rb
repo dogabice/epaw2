@@ -7,9 +7,18 @@ class PetsController < ApplicationController
     if user_signed_in?
       @pets = current_user.pets
     elsif vet_signed_in?
-      @pets=[]
+      pet_ids_set = Set.new
+      @pets = []
+  
       current_vet.appointments.each do |ap|
-      @pets << Pet.find(ap.pet_id)
+        pet_id = ap.pet_id
+  
+        # Check if the pet_id is not already in the set
+        unless pet_ids_set.include?(pet_id)
+          # Add pet_id to the set and fetch the corresponding pet
+          pet_ids_set.add(pet_id)
+          @pets << Pet.find(pet_id)
+        end
       end
     end
   end

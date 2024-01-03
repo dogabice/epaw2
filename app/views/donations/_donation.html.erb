@@ -8,11 +8,13 @@
   <% @userid = donation.user_id %>
   <% if (@userid!= nil) %>
   <%= User.find(@userid).first_name %>
+  <%= User.find(@userid).last_name %>
   <% else %>
   <% @vetid = donation.vet_id %>
   <%= Vet.find(@vetid).first_name %>
+  <%= Vet.find(@vetid).last_name %>
   <% end %>
-  <%= donation.vet_id %>
+  <% donation.vet_id %>
   </p>
 
   <p class="value">
