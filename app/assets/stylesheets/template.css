@@ -15,6 +15,7 @@ body {
     font-weight: 100;
     line-height: 1.5;
     background-color: #FFF6F1;
+    min-height: 100vh;
 }
 
 
@@ -59,7 +60,7 @@ nav {
     width: 100%;
     position: fixed;
     font-family: 'Montserrat', sans-serif;
-    background-color: #e3b297b0;
+    background-color: rgb(231, 190, 169);
     color: #000000;
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -175,6 +176,44 @@ nav {
 .nav-item:hover .dropdown {
     display: block;
 }
+
+
+/*ALERT CSS*/
+p.notice {
+    text-transform: uppercase;
+    position: fixed;
+    font-weight: bold;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: green;
+    padding: 15px;
+    z-index: 1000; /* Increase the z-index value */
+}
+
+p.alert {
+    text-transform: uppercase;
+    position: fixed;
+    font-weight: bold;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
+    padding: 15px;
+    z-index: 1000; /* Increase the z-index value */
+}
+.error_message{
+    text-transform: uppercase;
+    position: fixed;
+    font-weight: bold;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: red;
+    padding: 15px;
+    z-index: 1000;
+}
+
 
 @media only screen and (max-width: 768px) {
     .container {

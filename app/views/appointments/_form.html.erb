@@ -2,13 +2,12 @@
 <%= form_with(model: appointment) do |form| %>
   
   <% if appointment.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
-
+    <div class="error_message "style="top: 13%;">
       <ul>
         <% appointment.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
+        <p>Please try again</p>
       </ul>
     </div>
   <% end %>
@@ -29,7 +28,8 @@
      <%= form.select :vet_id, Vet.all.collect { |v| [ v.first_name, v.id ] }, class:"input", placeholder:"VET ID"%>
   </div>
 
-  <div class="form_input">
+  <div class="form_input_date">
+    <em>DATE</em> </br>
     <%= form.datetime_select :date, minute_step: 30, default: { minute: 0 }%>
   </div>
 
@@ -41,7 +41,8 @@
   <div>
     <%= form.submit class:"submitbutton",
     style:"width: 300px;
-    height: 40px;"%>
+    height: 40px;
+    border-radius:20px;"%>
   </div>
 <% end %>
 
